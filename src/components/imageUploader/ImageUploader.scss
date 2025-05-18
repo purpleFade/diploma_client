@@ -1,0 +1,23 @@
+.imageUploader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__button {
+        width: 200px;
+    }
+
+    &__input {
+        cursor: pointer;
+        
+        margin-bottom: 20px;
+    }
+
+    &__list {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+
+        list-style: none;
+    }
+}
