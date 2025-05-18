@@ -1,100 +1,128 @@
+# Diploma_2025_Frontend
+
+This repository contains the **React + TypeScript** web client.  
+It lets users upload tactical images, sends them to the backend for Roboflow detection, and presents the annotated results for preview or download.
+
+> **Live demo:** [Click here](https://diploma-client-jvx7.onrender.com)
 
 ---
 
-# Diploma_2025_Frontend
+## ✨ Key Features
 
-This repository contains the frontend application for the **Practice 2024 Project**, a web-based interface that interacts with the backend microservice to analyze and process tactical images. The frontend is built using React.js and TypeScript for a modern, responsive, and user-friendly experience.
+| Area | Details |
+|------|---------|
+| **Image upload** | Drag‑and‑drop / file picker to select a single image. |
+| **Instant feedback** | UI shows “Processing…” while the backend is working. |
+| **Roboflow results** | Lists detected objects and exposes two download buttons: `yolo.jpg` (annotated image) & `object_info.json` (metadata). |
+| **API base URL via env** | `VITE_APP_API_BASE` controls which backend the client talks to (default `http://localhost:5000`). |
+| **Modern stack** | Vite 5, React 18, TypeScript, Axios, SCSS modules. |
 
-## Features
+---
 
-- **Image Upload Interface**: Users can upload images for analysis and view processed results.
-- **Interactive UI**: Displays analysis results, including object detections, directly on the uploaded images.
-- **Real-time Feedback**: Provides immediate feedback on the status of image processing.
-- **API Integration**: Communicates seamlessly with the backend service via RESTful API.
+## 🛠️ Technology Stack
 
-## You can preview this service. Click [HERE](https://diploma-client-jvx7.onrender.com/) 
+- **React 18** (with Hooks)  
+- **TypeScript** – static typing  
+- **Vite** – lightning‑fast dev server & build  
+- **Axios** – HTTP client  
+- **SCSS Modules** – component‑scoped styles
 
-## Technology Stack
+---
 
-- **React.js**: JavaScript library for building user interfaces.
-- **TypeScript**: Strongly typed programming language for better code quality.
-- **Axios**: HTTP client for making API requests.
-- **SCSS**: Styling framework for custom, modular, and responsive design.
+## 🚀 Quick Start
 
-## Installation
+1. **Clone the repo**
 
-1. Clone the repository:
    ```bash
    git clone https://github.com/purpleFade/Practice_2024_frontend.git
    cd Practice_2024_frontend
    ```
 
-2. Install dependencies:
+2. **Install dependencies**
+
    ```bash
    npm install
    ```
 
-3. Start the development server:
+3. **Configure the backend URL (optional)**  
+   By default the client calls `http://localhost:5000`.  
+   To override this, create an **`.env`** file (or `.env.local`) in the project root:
+
+   ```bash
+   # .env
+   VITE_APP_API_BASE=https://your-backend-url
+   ```
+
+4. **Start the dev server**
+
    ```bash
    npm run dev
    ```
 
-4. The application will run locally on `http://localhost:3000/`.
+   The app is now running at **http://localhost:5173** (Vite default) or the port Vite chooses.
 
-## Usage
+5. **Production build**
 
-1. Open the application in a browser: `http://localhost:3000/`.
-2. Upload an image using the "Upload Image" button.
-3. View analysis results, including processed images and additional metadata.
-4. Download results in various formats (e.g., processed images, JSON data).
+   ```bash
+   npm run build        # outputs to /dist
+   npm run preview      # serves the built app locally
+   ```
 
-## Folder Structure
+---
+
+## 📡 API Contracts
+
+| Method | Route | Body | What it does |
+|--------|-------|------|--------------|
+| **POST** | `/process_image` | *multipart/form-data* field **image** | Backend processes the image & returns JSON `{ results_folder, object_info, … }`. |
+| **GET** | `/results/{folder}/{file}` | — | Downloads `yolo.jpg` or `object_info.json`. |
+
+> See the backend README for detailed response examples.
+
+---
+
+## 🗂️ Folder Structure
 
 ```
 Practice_2024_frontend/
-├── public/               # Public assets
-├── src/                  # Source code
-│   ├── components/       # React components
-│   ├── pages/            # Page-level components
-│   ├── styles/           # SCSS stylesheets
-│   ├── utils/            # Utility functions
-│   ├── App.tsx           # Main App component
+├── public/               # Static assets
+├── src/
+│   ├── components/
+│   │   └── ImageUploader/
+│   │       ├── ImageUploader.tsx
+│   │       └── ImageUploader.scss
+│   ├── App.tsx           # Main layout
 │   ├── index.tsx         # Entry point
-│   └── api/              # API service integrations
-├── package.json          # Project metadata and dependencies
-├── tsconfig.json         # TypeScript configuration
-└── README.md             # Project documentation
+│   └── utils/            # Helper functions (future)
+├── .env.example          # Sample env file
+├── package.json
+├── tsconfig.json
+└── README.md             # (this file)
 ```
 
-## API Integration
+---
 
-- **POST** `/process_image`: Sends the uploaded image to the backend for analysis.
-- **GET** `/results/<filename>`: Fetches processed image files and metadata.
+## 🖌️ Styling
 
-## Styling
-
-- Modular SCSS is used to style components.
-- Styles are scoped per component for better maintainability and isolation.
-
-## Contributing
-
-1. Fork this repository.
-2. Create a feature branch:
-   ```bash
-   git checkout -b feature-name
-   ```
-3. Commit your changes:
-   ```bash
-   git commit -m "Add feature description"
-   ```
-4. Push to your branch:
-   ```bash
-   git push origin feature-name
-   ```
-5. Submit a pull request.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+The project uses **SCSS modules** (`*.scss`) imported directly inside components, giving each component its own style scope (no global leaks).
 
 ---
+
+## 🤝 Contributing
+
+1. **Fork** the repo  
+2. **Create** a feature branch  
+   ```bash
+   git checkout -b feature/my-idea
+   ```
+3. **Commit** your changes  
+   ```bash
+   git commit -m "Describe my idea"
+   ```
+4. **Push** the branch & open a **pull request**
+
+---
+
+## 📝 License
+
+Distributed under the **MIT License**. See the `LICENSE` file for details.
