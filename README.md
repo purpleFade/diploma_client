@@ -1,7 +1,7 @@
 
 ---
 
-# Practice_2024_Frontend
+# Diploma_2025_Frontend
 
 This repository contains the frontend application for the **Practice 2024 Project**, a web-based interface that interacts with the backend microservice to analyze and process tactical images. The frontend is built using React.js and TypeScript for a modern, responsive, and user-friendly experience.
 
@@ -11,6 +11,8 @@ This repository contains the frontend application for the **Practice 2024 Projec
 - **Interactive UI**: Displays analysis results, including object detections, directly on the uploaded images.
 - **Real-time Feedback**: Provides immediate feedback on the status of image processing.
 - **API Integration**: Communicates seamlessly with the backend service via RESTful API.
+
+## You can preview this service. Click (HERE)[https://diploma-client-jvx7.onrender.com/] 
 
 ## Technology Stack
 
