@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import './ImageUploader.scss';
 import axios from 'axios';
 
-const API_BASE = process.env.REACT_APP_API_BASE || 'http://localhost:5000';
+const API_BASE = import.meta.env.VITE_APP_API_BASE || 'http://localhost:5000';
 
 const ImageUploader: React.FC = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
