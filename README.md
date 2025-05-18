@@ -12,7 +12,7 @@ This repository contains the frontend application for the **Practice 2024 Projec
 - **Real-time Feedback**: Provides immediate feedback on the status of image processing.
 - **API Integration**: Communicates seamlessly with the backend service via RESTful API.
 
-## You can preview this service. Click (HERE)[https://diploma-client-jvx7.onrender.com/] 
+## You can preview this service. Click [HERE](https://diploma-client-jvx7.onrender.com/) 
 
 ## Technology Stack
 
